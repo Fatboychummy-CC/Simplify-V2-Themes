@@ -1,0 +1,59 @@
+##### SMALL #####
+#- THREE-BY-Y
+small, 3x3, Standard, Just-Items
+small, 3x4, Standard, Just-Items, Tall-Info, Tall-Items
+small, 3x5, Standard, Just-Items, Tall-Info, Tall-Items
+small, 3x6, Standard, Just-Items, Tall-Info, Tall-Items
+#- FOUR-BY-Y
+small, 4x3, Standard, Just-Items, Side-by-Side-Left, Side-by-Side-Right
+small, 4x4, Standard, Just-Items
+small, 4x5, Standard, Just-Items, Tall-Info, Tall-Items
+small, 4x6, Standard, Just-Items, Tall-Info, Tall-Items
+#- FIVE-BY-Y
+small, 5x3, Standard, Just-Items, Side-by-Side-Left, Side-by-Side-Right
+small, 5x4, Standard, Just-Items, Side-by-Side-Left, Side-by-Side-Right
+small, 5x5, Standard, Just-Items
+small, 5x6, Standard, Just-Items, Tall-Info, Tall-Items
+#- SIX-BY-Y
+small, 6x3, Standard, Just-Items, Side-by-Side-Left, Side-by-Side-Right
+small, 6x4, Standard, Just-Items, Side-by-Side-Left, Side-by-Side-Right
+small, 6x5, Standard, Just-Items, Side-by-Side-Left, Side-by-Side-Right
+small, 6x6, Standard, Just-Items
+
+##### MEDIUM (STANDARD) #####
+#- THREE-BY-Y
+medium, 3x3, Standard, Just-Items
+medium, 3x4, Standard, Just-Items, Tall-Info, Tall-Items
+medium, 3x5, Standard, Just-Items, Tall-Info, Tall-Items
+medium, 3x6, Standard, Just-Items, Tall-Info, Tall-Items
+#- FOUR-BY-Y
+medium, 4x3, Standard, Just-Items, Side-by-Side-Left, Side-by-Side-Right
+medium, 4x4, Standard, Just-Items
+medium, 4x5, Standard, Just-Items, Tall-Info, Tall-Items
+medium, 4x6, Standard, Just-Items, Tall-Info, Tall-Items
+#- FIVE-BY-Y
+medium, 5x3, Standard, Just-Items, Side-by-Side-Left, Side-by-Side-Right
+medium, 5x4, Standard, Just-Items, Side-by-Side-Left, Side-by-Side-Right
+medium, 5x5, Standard, Just-Items
+medium, 5x6, Standard, Just-Items, Tall-Info, Tall-Items
+#- SIX-BY-Y
+medium, 6x3, Standard, Just-Items, Side-by-Side-Left, Side-by-Side-Right
+medium, 6x4, Standard, Just-Items, Side-by-Side-Left, Side-by-Side-Right
+medium, 6x5, Standard, Just-Items, Side-by-Side-Left, Side-by-Side-Right
+medium, 6x6, Standard, Just-Items
+
+##### LARGE #####
+#- THREE-BY-Y OMITTED DUE TO BEING TOO SMALL.
+
+#- FOUR-BY-Y OMITTED DUE TO BEING TOO SMALL.
+
+#- FIVE-BY-Y
+large, 5x3, Standard, Just-Items, Side-by-Side-Left, Side-by-Side-Right
+large, 5x4, Standard, Just-Items, Side-by-Side-Left, Side-by-Side-Right
+large, 5x5, Standard, Just-Items
+large, 5x6, Standard, Just-Items, Tall-Info, Tall-Items
+#- SIX-BY-Y
+large, 6x3, Standard, Just-Items, Side-by-Side-Left, Side-by-Side-Right
+large, 6x4, Standard, Just-Items, Side-by-Side-Left, Side-by-Side-Right
+large, 6x5, Standard, Just-Items, Side-by-Side-Left, Side-by-Side-Right
+large, 6x6, Standard, Just-Items
