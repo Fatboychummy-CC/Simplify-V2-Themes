@@ -75,14 +75,6 @@ local function parseCustomCSV(data)
   return parsed
 end
 
-local function getLayoutFile(source)
-
-end
-
-local function getThemeFile(source)
-
-end
-
 local module = {
   sources = {
     themeList = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/List.csv",
@@ -91,7 +83,7 @@ local module = {
     rootTheme = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Themes",
     rootLayouts = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Layouts"
   },
-  getFormat = "%s/%s/%s"
+  getFormat = "%s/%s/%s/%s"
 }
 
 function module.getThemes()
@@ -99,7 +91,8 @@ function module.getThemes()
 end
 
 function module.getTheme(category, subcategory, label)
-  return getThemeFile(string.format(module.getFormat, category, subcategory, label))
+  local source = string.format(module.getFormat, module.sources.rootTheme, category, subcategory, label)
+
 end
 
 function module.getLayouts()
@@ -107,7 +100,8 @@ function module.getLayouts()
 end
 
 function module.getLayout(category, subcategory, label)
-  return getLayoutFile(string.format(module.getFormat, category, subcategory, label))
+  local source = string.format(module.getFormat, module.sources.rootLayout, category, subcategory, label)
+  
 end
 
 return module
