@@ -1,0 +1,114 @@
+{
+  files = {
+    [ "shop.visual.infobox.text" ] = {
+      data = "--[[\
+  Available in the environment:\
+    math [library],\
+    string [library],\
+    table [library],\
+    item {\
+      name [string] (the internally cached name of the item),\
+      displayName [string] (the name of the item displayed to the user),\
+      damage [int],\
+      nbtHash [string or nil],\
+      sortByNbt [bool] (if the shop sorts this item by its nbt data),\
+      stackSize [int] (maximum amount of items in a single stack),\
+      price [float] (price per item),\
+      localname [string] (localname@domain.kst),\
+      show [bool] (is this item displayed?)\
+    },\
+    krist {\
+      address [string],\
+      domain [string] (localname@domain.kst)\
+    }\
+]]\
+\
+local tLines = {}\
+tLines[1] = \"\"\
+tLines[2] = string.format(\"Krist address: %s\", krist.address)\
+if item then\
+  tLines[3] = string.format(\"Item: %s\", item.displayName)\
+  tLines[4] = string.format(\"Price %.2f\", item.price)\
+  if item.price < 1 then\
+    tLines[5] = string.format(\
+      \"1 KST: %d items.\",\
+      math.min(\
+        math.floor(1 / item.price),\
+        item.count\
+      )\
+    )\
+  else\
+    tLines[5] = string.format(\
+      \"1 stack (%d): %.2f KST\",\
+      math.min(item.stackSize, item.count),\
+      math.ceil(item.price * math.min(item.count, item.stackSize))\
+    )\
+  end\
+\
+  tLines[6] = string.format(\
+    \"/pay %s %d\",\
+    krist.domain and krist.domain ~= \"\"\
+    and item.localname and item.localname ~= \"\"\
+    and string.format(\
+      \"%s@%s.kst\",\
+      item.localname,\
+      krist.domain\
+    )\
+    or krist.address,\
+    math.ceil(\
+      item.price * math.min(item.stackSize, item.count)\
+    )\
+  )\
+end\
+\
+\
+return tLines",
+      location = ".TampererLongData/infoboxtext.lua",
+    },
+  },
+  settings = {
+    [ "shop.visual.itemlist.s" ] = 1,
+    [ "shop.visual.buttons.prev.y" ] = 17,
+    [ "shop.visual.dots.purchase.enabled" ] = true,
+    [ "shop.visual.infobox.y" ] = 2,
+    [ "shop.visual.buttons.next.enabled" ] = true,
+    [ "shop.visual.itemlist.y" ] = 10,
+    [ "shop.visual.buttons.next.y" ] = 17,
+    [ "shop.visual.itemlist.w" ] = 27,
+    [ "shop.visual.itemlist.x" ] = 2,
+    [ "shop.visual.buttons.next.w" ] = 6,
+    [ "shop.visual.dots.userInput.enabled" ] = true,
+    [ "shop.visual.infobox.w" ] = 27,
+    [ "shop.visual.itemlist.h" ] = 5,
+    [ "shop.visual.dots.purchase.displayTime" ] = 2,
+    [ "shop.visual.dots.purchase.y" ] = 2,
+    [ "shop.visual.itemlist.showEmpty" ] = true,
+    [ "shop.visual.infobox.enabled" ] = true,
+    [ "shop.visual.buttons.next.h" ] = 2,
+    [ "shop.visual.dots.redraw.displayTime" ] = 2,
+    [ "shop.visual.buttons.prev.text" ] = "Prev",
+    [ "shop.visual.itemlist.decimal" ] = 2,
+    [ "shop.visual.buttons.prev.h" ] = 2,
+    [ "shop.visual.itemlist.showLegend" ] = true,
+    [ "shop.visual.dots.redraw.x" ] = 1,
+    [ "shop.visual.buttons.next.x" ] = 23,
+    [ "shop.visual.dots.update.y" ] = 19,
+    [ "shop.visual.dots.userInput.x" ] = 1,
+    [ "shop.visual.dots.update.displayTime" ] = 1,
+    [ "shop.visual.dots.update.enabled" ] = true,
+    [ "shop.visual.dots.userInput.y" ] = 3,
+    [ "shop.visual.dots.update.x" ] = 1,
+    [ "shop.visual.dots.userInput.displayTime" ] = 2,
+    [ "shop.visual.infobox.h" ] = 7,
+    [ "shop.visual.infobox.x" ] = 2,
+    [ "shop.visual.monitorScale" ] = 1,
+    [ "shop.visual.dots.purchase.x" ] = 1,
+    [ "shop.visual.buttons.prev.x" ] = 2,
+    [ "shop.visual.buttons.prev.enabled" ] = true,
+    [ "shop.visual.buttons.prev.w" ] = 6,
+    [ "shop.visual.dots.redraw.enabled" ] = true,
+    [ "shop.visual.dots.redraw.y" ] = 1,
+    [ "shop.visual.buttons.next.text" ] = "Next",
+    [ "shop.visual.infobox.centered" ] = false,
+  },
+}
