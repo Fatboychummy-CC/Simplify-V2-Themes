@@ -104,7 +104,9 @@ local module = {
     layoutList = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Layout.csv",
     self = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Themes.lua",
     rootTheme = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Themes",
-    rootLayouts = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Layouts"
+    rootLayouts = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Layouts",
+    layoutSpecs = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Layouts/Specifications.lua",
+    themeSpecs = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Themes/Specifications.lua"
   },
   getFormat = "%s/%s/%s/%s"
 }
