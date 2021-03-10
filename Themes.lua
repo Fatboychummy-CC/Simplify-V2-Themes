@@ -75,6 +75,29 @@ local function parseCustomCSV(data)
   return parsed
 end
 
+local function makeObject(data)
+  expect(1, data, "table")
+
+  return {
+    raw = data,
+    InstallToSettings = function(self)
+      for key, value in pairs(self.raw) do
+        settings.set(key, value)
+      end
+    end,
+    SaveToFile = function(self, file)
+      local h, err = io.open(file, 'w')
+      if not h then
+        return false, err
+      end
+
+      h:write(textutils.serialize(self.raw))
+      h:close()
+      return true
+    end
+  }
+end
+
 local module = {
   sources = {
     themeList = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/List.csv",
@@ -92,7 +115,8 @@ end
 
 function module.getTheme(category, subcategory, label)
   local source = string.format(module.getFormat, module.sources.rootTheme, category, subcategory, label)
-
+  local data = textutils.unserialize(getFile(source))
+  return makeObject(data)
 end
 
 function module.getLayouts()
@@ -101,7 +125,8 @@ end
 
 function module.getLayout(category, subcategory, label)
   local source = string.format(module.getFormat, module.sources.rootLayout, category, subcategory, label)
-  
+  local data = textutils.unserialize(getFile(source))
+  return makeObject(data)
 end
 
 return module
