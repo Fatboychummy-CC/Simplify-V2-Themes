@@ -15,6 +15,18 @@ local function getFile(source)
   end
 end
 
+local function readFile(location)
+  expect(1, location, "string")
+
+  local h, err = io.open(location, 'r')
+  if not h then error(err) end
+
+  local data = h:read("*a")
+  h:close()
+
+  return data
+end
+
 local function writeFile(location, data)
   expect(1, location, "string")
   expect(2, data, "string")
@@ -150,4 +162,23 @@ function module.getLayout(category, subcategory, label)
   return makeObject(data)
 end
 
+function module.createLayout()
+  local specs = textutils.unserialize(getFile(module.sources.layoutSpecs))
+  local sDir = fs.getDir(shell.getRunningProgram())
+  local data = {
+    files = {},
+    settings = {}
+  }
+
+  for i, setting in ipairs(specs.settings) do
+    data.settings[setting] = settings.get(setting)
+  end
+
+  for setting, settingData in pairs(specs.files) do
+    data.files[setting].data = readFile(fs.combine(sDir, settingData.location))
+    data.files[setting].location = settingData.location
+  end
+
+  return makeObject(data)
+end
 return module
