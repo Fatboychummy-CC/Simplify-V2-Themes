@@ -15,6 +15,19 @@ local function getFile(source)
   end
 end
 
+local function writeFile(location, data)
+  expect(1, location, "string")
+  expect(2, data, "string")
+
+  local h, err = io.open(location, 'w')
+  if not h then
+    error(err)
+  end
+
+  h:write(data)
+  h:close()
+end
+
 -- parse the custom CSV format.
 local function parseCustomCSV(data)
   expect(1, data, "string")
@@ -81,8 +94,14 @@ local function makeObject(data)
   return {
     raw = data,
     InstallToSettings = function(self)
-      for key, value in pairs(self.raw) do
-        settings.set(key, value)
+      local sDir = fs.getDir(shell.getRunningProgram())
+
+      for setting, value in pairs(self.raw.settings) do
+        settings.set(setting, value)
+      end
+
+      for setting, data in pairs(self.raw.files) do
+        writeFile(fs.combine(sDir, data.location), data.value)
       end
     end,
     SaveToFile = function(self, file)
