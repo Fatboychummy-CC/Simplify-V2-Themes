@@ -175,7 +175,7 @@ function module.createLayout()
   end
 
   for setting, settingData in pairs(specs.files) do
-    data.files[setting].data = readFile(fs.combine(sDir, settingData.location))
+    data.files[setting].data = readFile(fs.combine(dir, settingData.location))
     data.files[setting].location = settingData.location
   end
 
