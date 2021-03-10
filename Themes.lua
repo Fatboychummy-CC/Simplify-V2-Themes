@@ -164,7 +164,7 @@ end
 
 function module.createLayout()
   local specs = textutils.unserialize(getFile(module.sources.layoutSpecs))
-  local sDir = fs.getDir(shell.getRunningProgram())
+  local dir = fs.getDir(shell.getRunningProgram())
   local data = {
     files = {},
     settings = {}
