@@ -1,6 +1,8 @@
 {
   files = {
-    ["shop.visual.infobox.text"] = ".TampererLongData/infoboxtext.lua"
+    ["shop.visual.infobox.text"] = {
+      location = ".TampererLongData/infoboxtext.lua",
+    }
   },
   settings = {
     "shop.visual.monitorScale",
