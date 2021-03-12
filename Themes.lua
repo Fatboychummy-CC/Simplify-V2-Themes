@@ -88,11 +88,9 @@ local function parseCustomCSV(data)
     end
 
     -- add to parsed data
-    parsed[#parsed + 1] = {
-      category = category,
-      subcategory = subcategory,
-      items = items
-    }
+    if not parsed[category] then parsed[category] = {} end
+    if not parsed[category][subcategory] then parsed[category][subcategory] = {} end
+    parsed[category][subcategory].items = items
 
     i = i + 1
   end
@@ -181,4 +179,5 @@ function module.createLayout()
 
   return makeObject(data)
 end
+
 return module
