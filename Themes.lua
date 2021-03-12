@@ -131,8 +131,8 @@ end
 
 local module = {
   sources = {
-    themeList = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/List.csv",
-    layoutList = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Layout.csv",
+    themeList = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Themes/List.csv",
+    layoutList = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Layouts/List.csv",
     self = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Themes.lua",
     rootTheme = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Themes",
     rootLayouts = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Layouts",
