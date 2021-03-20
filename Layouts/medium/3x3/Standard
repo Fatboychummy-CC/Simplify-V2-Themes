@@ -1,29 +1,7 @@
 {
   files = {
     [ "shop.visual.infobox.text" ] = {
-      data = "--[[\
-  Available in the environment:\
-    math [library],\
-    string [library],\
-    table [library],\
-    item {\
-      name [string] (the internally cached name of the item),\
-      displayName [string] (the name of the item displayed to the user),\
-      damage [int],\
-      nbtHash [string or nil],\
-      sortByNbt [bool] (if the shop sorts this item by its nbt data),\
-      stackSize [int] (maximum amount of items in a single stack),\
-      price [float] (price per item),\
-      localname [string] (localname@domain.kst),\
-      show [bool] (is this item displayed?)\
-    },\
-    krist {\
-      address [string],\
-      domain [string] (localname@domain.kst)\
-    }\
-]]\
-\
-local tLines = {}\
+      data = "local tLines = {}\
 tLines[1] = \"\"\
 tLines[2] = string.format(\"Krist address: %s\", krist.address)\
 if item then\
