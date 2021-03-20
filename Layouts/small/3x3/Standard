@@ -58,7 +58,7 @@ return tLines",
     },
   },
   settings = {
-    [ "shop.visual.itemlist.s" ] = 3,
+    [ "shop.visual.itemlist.s" ] = 5,
     [ "shop.visual.buttons.prev.y" ] = 11,
     [ "shop.visual.dots.purchase.enabled" ] = true,
     [ "shop.visual.infobox.y" ] = 2,
