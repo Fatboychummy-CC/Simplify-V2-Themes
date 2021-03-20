@@ -1,0 +1,105 @@
+{
+  files = {
+    [ "shop.visual.infobox.text" ] = {
+      data = "local tLines = {}\
+local function insertLine(s)\
+  tLines[#tLines + 1] = s\
+end\
+local function blank()\
+  insertLine(\"\")\
+end\
+\
+insertLine(\"\")\
+insertLine(string.format(\"Krist address: %s\", krist.address))\
+blank()\
+if item then\
+  insertLine(string.format(\"Item Selected: %s\", item.displayName))\
+  blank()\
+  insertLine(string.format(\"Price for one item: %.2f\", item.price))\
+  blank()\
+  if item.price < 1 then\
+    insertLine(string.format(\
+      \"1 KST: %d items.\",\
+      math.min(\
+        math.floor(1 / item.price),\
+        item.count\
+      )\
+    ))\
+    blank()\
+  else\
+    insertLine(string.format(\
+      \"1 stack (%d): %.2f KST\",\
+      math.min(item.stackSize, item.count),\
+      math.ceil(item.price * math.min(item.count, item.stackSize))\
+    ))\
+    blank()\
+  end\
+\
+  insertLine(string.format(\
+    \"/pay %s %d\",\
+    krist.domain and krist.domain ~= \"\"\
+    and item.localname and item.localname ~= \"\"\
+    and string.format(\
+      \"%s@%s.kst\",\
+      item.localname,\
+      krist.domain\
+    )\
+    or krist.address,\
+    math.ceil(\
+      item.price * math.min(item.stackSize, item.count)\
+    )\
+  ))\
+  blank()\
+end\
+\
+\
+return tLines",
+      location = ".TampererLongData/infoboxtext.lua",
+    },
+  },
+  settings = {
+    [ "shop.visual.itemlist.s" ] = 3,
+    [ "shop.visual.buttons.prev.y" ] = 11,
+    [ "shop.visual.dots.purchase.enabled" ] = true,
+    [ "shop.visual.infobox.y" ] = 2,
+    [ "shop.visual.buttons.next.enabled" ] = true,
+    [ "shop.visual.itemlist.y" ] = 14,
+    [ "shop.visual.buttons.next.y" ] = 11,
+    [ "shop.visual.itemlist.w" ] = 55,
+    [ "shop.visual.itemlist.x" ] = 2,
+    [ "shop.visual.buttons.next.w" ] = 6,
+    [ "shop.visual.dots.userInput.enabled" ] = true,
+    [ "shop.visual.infobox.w" ] = 40,
+    [ "shop.visual.itemlist.h" ] = 23,
+    [ "shop.visual.dots.purchase.displayTime" ] = 2,
+    [ "shop.visual.dots.purchase.y" ] = 2,
+    [ "shop.visual.itemlist.showEmpty" ] = true,
+    [ "shop.visual.infobox.enabled" ] = true,
+    [ "shop.visual.buttons.next.h" ] = 2,
+    [ "shop.visual.dots.redraw.displayTime" ] = 2,
+    [ "shop.visual.buttons.prev.text" ] = "Prev",
+    [ "shop.visual.itemlist.decimal" ] = 2,
+    [ "shop.visual.buttons.prev.h" ] = 2,
+    [ "shop.visual.itemlist.showLegend" ] = true,
+    [ "shop.visual.dots.redraw.x" ] = 1,
+    [ "shop.visual.buttons.next.x" ] = 51,
+    [ "shop.visual.dots.update.y" ] = 38,
+    [ "shop.visual.dots.userInput.x" ] = 1,
+    [ "shop.visual.dots.update.displayTime" ] = 1,
+    [ "shop.visual.dots.update.enabled" ] = true,
+    [ "shop.visual.dots.userInput.y" ] = 3,
+    [ "shop.visual.dots.update.x" ] = 1,
+    [ "shop.visual.dots.userInput.displayTime" ] = 2,
+    [ "shop.visual.infobox.h" ] = 11,
+    [ "shop.visual.infobox.x" ] = 2,
+    [ "shop.visual.monitorScale" ] = 0.5,
+    [ "shop.visual.dots.purchase.x" ] = 1,
+    [ "shop.visual.buttons.prev.x" ] = 43,
+    [ "shop.visual.buttons.prev.enabled" ] = true,
+    [ "shop.visual.buttons.prev.w" ] = 6,
+    [ "shop.visual.dots.redraw.enabled" ] = true,
+    [ "shop.visual.dots.redraw.y" ] = 1,
+    [ "shop.visual.buttons.next.text" ] = "Next",
+    [ "shop.visual.infobox.centered" ] = true,
+  },
+}
