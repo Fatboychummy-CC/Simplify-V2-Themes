@@ -10,8 +10,7 @@ local function getFile(source)
     h.close()
     return data
   else
-    printError(string.format("Failed to download file from %s.", source))
-    error(err, 2)
+    error(string.format("Failed to download file from %s.", source), 2)
   end
 end
 
@@ -111,7 +110,7 @@ local function makeObject(data)
       end
 
       for setting, data in pairs(self.raw.files) do
-        writeFile(fs.combine(sDir, data.location), data.value)
+        writeFile(fs.combine(sDir, data.location), data.data)
       end
     end,
     SaveToFile = function(self, file)
@@ -133,7 +132,7 @@ local module = {
     layoutList = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Layouts/List.csv",
     self = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Themes.lua",
     rootTheme = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Themes",
-    rootLayouts = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Layouts",
+    rootLayout = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Layouts",
     layoutSpecs = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Layouts/Specifications.lua",
     themeSpecs = "https://raw.githubusercontent.com/Fatboychummy-CC/Simplify-V2-Themes/main/Themes/Specifications.lua"
   },
@@ -173,6 +172,7 @@ function module.createLayout()
   end
 
   for setting, settingData in pairs(specs.files) do
+    data.files[setting] = {}
     data.files[setting].data = readFile(fs.combine(dir, settingData.location))
     data.files[setting].location = settingData.location
   end
